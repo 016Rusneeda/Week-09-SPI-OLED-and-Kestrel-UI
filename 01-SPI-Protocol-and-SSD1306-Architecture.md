@@ -4,201 +4,40 @@
 
 ## 1. วิวัฒนาการและการเปรียบเทียบโพรโทคอลสื่อสาร (I2C vs SPI vs Shift Register)
 
-ในการพัฒนาอุปกรณ์ IoT ทางกายภาพ การเลือกบัสสื่อสารระหว่างไมโครคอนโทรลเลอร์กับอุปกรณ์รอบข้าง (Peripherals) มีผลโดยตรงต่อความเร็วในการรีเฟรชหน้าจอ (Frame Rate) และความซับซ้อนของการเขียนเฟิร์มแวร์
+ในการพัฒนาอุปกรณ์แสดงผลสำหรับ IoT ในระดับกายภาพนั้น การเลือกบัสสื่อสารระหว่างไมโครคอนโทรลเลอร์กับอุปกรณ์รอบข้าง (Peripherals) มีผลโดยตรงต่อความเร็วในการรีเฟรชหน้าจอ (Frame Rate) และความซับซ้อนของการเขียนเฟิร์มแวร์ โดยทั่วไปจะมีอินเทอร์เฟซให้ใช้ 2 แบบ คือ I2C และ SPI
 
-![828](Images/SSD1306_SPI_Interface.svg)
+### 1.1 การอินเทอร์เฟซแบบ I2C (Inter-Integrated Circuit) 
+การอินเตอร์เฟสแบบ I2C ใช้สายสัญญาณ 2 เส้น คือ SDA และ SCL โดย SDA ใช้สำหรับส่งข้อมูล และ SCL ใช้สำหรับส่งสัญญาณนาฬิกา มีข้อดีคือใช้สายสัญญาณน้อยแต่ข้อเสียคือความเร็วในการส่งข้อมูลช้ากว่า SPI
 
-```drawio
-<mxfile host="127.0.0.1">
-  <diagram id="BGBp3hZUxCvP14PtjKWb" name="Page-1">
-    <mxGraphModel dx="1188" dy="713" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
-        arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0"
-        shadow="0">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-        <mxCell id="Yf1mAE-L7jGuFOsgKsXy-1" connectable="0" parent="1" style="group;fontSize=16;"
-            value="" vertex="1">
-          <mxGeometry height="210" width="732.41" x="40" y="160" as="geometry" />
-        </mxCell>
-        <mxCell id="qZ5NcXns-wohIPKxy9bx-1" edge="1" parent="Yf1mAE-L7jGuFOsgKsXy-1"
-            source="qZ5NcXns-wohIPKxy9bx-2"
-            style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=3;endArrow=block;endFill=1;"
-            target="qZ5NcXns-wohIPKxy9bx-18">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="qZ5NcXns-wohIPKxy9bx-2" parent="Yf1mAE-L7jGuFOsgKsXy-1"
-            style="whiteSpace=wrap;html=1;strokeWidth=2;fontSize=16;"
-            value="&lt;div&gt;SSD1306 &lt;br&gt;OLED Controller&lt;/div&gt;" vertex="1">
-          <mxGeometry height="207.4074074074074" width="142.59309734513275" x="162.03761061946904"
-              as="geometry"/>
-        </mxCell>
-        <mxCell id="qZ5NcXns-wohIPKxy9bx-3" parent="Yf1mAE-L7jGuFOsgKsXy-1"
-            style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=15;"
-            value="MOSI (D1)" vertex="1">
-          <mxGeometry height="38.888888888888886" width="77.77805309734514" y="42.77777777777778"
-              as="geometry"/>
-        </mxCell>
-        <mxCell id="qZ5NcXns-wohIPKxy9bx-4" parent="Yf1mAE-L7jGuFOsgKsXy-1"
-            style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=15;"
-            value="SCK (D0)" vertex="1">
-          <mxGeometry height="38.888888888888886" width="77.77805309734514" as="geometry" />
-        </mxCell>
-        <mxCell id="qZ5NcXns-wohIPKxy9bx-5" parent="Yf1mAE-L7jGuFOsgKsXy-1"
-            style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=15;"
-            value="CS" vertex="1">
-          <mxGeometry height="38.888888888888886" width="38.88902654867257" x="38.88902654867257"
-              y="85.55555555555556" as="geometry"/>
-        </mxCell>
-        <mxCell id="qZ5NcXns-wohIPKxy9bx-6" parent="Yf1mAE-L7jGuFOsgKsXy-1"
-            style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=15;"
-            value="DC" vertex="1">
-          <mxGeometry height="38.888888888888886" width="38.88902654867257" x="38.88902654867257"
-              y="128.33333333333334" as="geometry"/>
-        </mxCell>
-        <mxCell id="qZ5NcXns-wohIPKxy9bx-7" parent="Yf1mAE-L7jGuFOsgKsXy-1"
-            style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;rounded=0;fontSize=15;"
-            value="RES" vertex="1">
-          <mxGeometry height="38.888888888888886" width="38.88902654867257" x="38.88902654867257"
-              y="171.11111111111111" as="geometry"/>
-        </mxCell>
-        <mxCell id="qZ5NcXns-wohIPKxy9bx-8" parent="Yf1mAE-L7jGuFOsgKsXy-1"
-            style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.logic_gates.inverting_contact;flipV=1;legacyAnchorPoints=0;"
-            value="" vertex="1">
-          <mxGeometry height="12.962962962962962" width="12.963008849557522" x="84.2595575221239"
-              y="12.962962962962962" as="geometry"/>
-        </mxCell>
-        <mxCell id="qZ5NcXns-wohIPKxy9bx-9" parent="Yf1mAE-L7jGuFOsgKsXy-1"
-            style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.logic_gates.inverting_contact;flipV=1;legacyAnchorPoints=0;"
-            value="" vertex="1">
-          <mxGeometry height="12.962962962962962" width="12.963008849557522" x="84.2595575221239"
-              y="55.74074074074074" as="geometry"/>
-        </mxCell>
-        <mxCell id="qZ5NcXns-wohIPKxy9bx-10" parent="Yf1mAE-L7jGuFOsgKsXy-1"
-            style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.logic_gates.inverting_contact;flipV=1;legacyAnchorPoints=0;"
-            value="" vertex="1">
-          <mxGeometry height="12.962962962962962" width="12.963008849557522" x="84.2595575221239"
-              y="98.51851851851852" as="geometry"/>
-        </mxCell>
-        <mxCell id="qZ5NcXns-wohIPKxy9bx-11" parent="Yf1mAE-L7jGuFOsgKsXy-1"
-            style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.logic_gates.inverting_contact;flipV=1;legacyAnchorPoints=0;"
-            value="" vertex="1">
-          <mxGeometry height="12.962962962962962" width="12.963008849557522" x="84.2595575221239"
-              y="141.2962962962963" as="geometry"/>
-        </mxCell>
-        <mxCell id="qZ5NcXns-wohIPKxy9bx-12" parent="Yf1mAE-L7jGuFOsgKsXy-1"
-            style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.logic_gates.inverting_contact;flipV=1;legacyAnchorPoints=0;"
-            value="" vertex="1">
-          <mxGeometry height="12.962962962962962" width="12.963008849557522" x="84.2595575221239"
-              y="184.07407407407408" as="geometry"/>
-        </mxCell>
-        <mxCell id="qZ5NcXns-wohIPKxy9bx-13" edge="1" parent="Yf1mAE-L7jGuFOsgKsXy-1"
-            source="qZ5NcXns-wohIPKxy9bx-8"
-            style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.9;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.093;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;"
-            target="qZ5NcXns-wohIPKxy9bx-2">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="qZ5NcXns-wohIPKxy9bx-14" edge="1" parent="Yf1mAE-L7jGuFOsgKsXy-1"
-            style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.9;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.093;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="95.92626548672567" y="62.22222222222222" as="sourcePoint" />
-            <mxPoint x="162.03761061946904" y="62.22222222222222" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="qZ5NcXns-wohIPKxy9bx-15" edge="1" parent="Yf1mAE-L7jGuFOsgKsXy-1"
-            style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.9;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.093;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="95.92626548672567" y="105" as="sourcePoint" />
-            <mxPoint x="162.03761061946904" y="105" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="qZ5NcXns-wohIPKxy9bx-16" edge="1" parent="Yf1mAE-L7jGuFOsgKsXy-1"
-            style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.9;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.093;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="95.92626548672567" y="147.77777777777777" as="sourcePoint" />
-            <mxPoint x="162.03761061946904" y="147.77777777777777" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="qZ5NcXns-wohIPKxy9bx-17" edge="1" parent="Yf1mAE-L7jGuFOsgKsXy-1"
-            style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.9;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.093;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="95.92626548672567" y="190.47777777777785" as="sourcePoint" />
-            <mxPoint x="162.03761061946904" y="190.47777777777785" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="qZ5NcXns-wohIPKxy9bx-18" parent="Yf1mAE-L7jGuFOsgKsXy-1"
-            style="whiteSpace=wrap;html=1;strokeWidth=2;fontSize=16;"
-            value="&lt;div&gt;1024 Bytes &lt;br&gt;GDDRAM&lt;/div&gt;" vertex="1">
-          <mxGeometry height="207.4074074074074" width="103.70407079646017" x="369.4457522123894"
-              as="geometry"/>
-        </mxCell>
-        <mxCell id="qZ5NcXns-wohIPKxy9bx-19" parent="Yf1mAE-L7jGuFOsgKsXy-1"
-            style="whiteSpace=wrap;html=1;strokeWidth=2;fontSize=16;"
-            value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;128 * 64 =&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;8,192&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;pixel&lt;/span&gt;&lt;/div&gt;"
-            vertex="1">
-          <mxGeometry height="207.4074074074074" width="207.40814159292034" x="525.0018584070797"
-              as="geometry"/>
-        </mxCell>
-        <mxCell id="qZ5NcXns-wohIPKxy9bx-20" edge="1" parent="Yf1mAE-L7jGuFOsgKsXy-1"
-            style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=3;endArrow=block;endFill=1;"
-            target="qZ5NcXns-wohIPKxy9bx-19">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="473.1498230088496" y="103.52222222222224" as="sourcePoint" />
-            <mxPoint x="537.9648672566371" y="103.52222222222224" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-      </root>
-    </mxGraphModel>
-  </diagram>
-</mxfile>
-```
+![SSD1306_I2C_Interface](Images/SSD1306_I2C_Interface.svg)
+
+### 1.2 การอินเทอร์เฟสแบบ 4-Wire SPI (Serial Peripheral Interface)
+
+การอินเตอร์เฟสแบบ SPI ใช้สายสัญญาณ 4 เส้น คือ MOSI, SCK, CS, DC และ RES โดย MOSI ใช้สำหรับส่งข้อมูล และ SCK ใช้สำหรับส่งสัญญาณนาฬิกา มีข้อดีคือความเร็วในการส่งข้อมูลเร็วกว่า I2C ทำให้มีอัตราการรีเฟรชหน้าจอ (Frame Rate) ที่สูงกว่า 
+
+![SSD1306_SPI_Interface](Images/SSD1306_SPI_Interface.svg)
 
 
-
-
-
-```mermaid
-graph TB
-    subgraph "Shift Register (e.g. 74HC595)"
-        SR1["Data In (SER)"] --> SR2["Shift Register"]
-        SR3["Clock (SRCLK)"] --> SR2
-        SR4["Latch (RCLK)"] --> SR5["Output Pins Q0-Q7"]
-        style SR2 fill:#f9d5e5,stroke:#333
-    end
-
-    subgraph "I2C Bus (Inter-Integrated Circuit)"
-        I1["SDA (Bidirectional Data)"] <--> I2["Device Address e.g. 0x3C"]
-        I3["SCL (Clock 100k-400kHz)"] --> I2
-        I2 --> I4["Internal Controller"]
-        style I2 fill:#eeeeee,stroke:#333
-    end
-
-    subgraph "4-Wire SPI (Serial Peripheral Interface)"
-        S1["MOSI (D1) High Speed 10-20MHz"] --> S2["SSD1306 Controller"]
-        S2_1["SCK (D0) Clock"] --> S2
-        S2_2["CS (Chip Select Active LOW)"] --> S2
-        S2_3["DC (Data / Command Select)"] --> S2
-        S2 --> S3["1,024 Bytes GDDRAM"]
-        style S2 fill:#d5e8d4,stroke:#333
-    end
-```
 
 ### ตารางเปรียบเทียบคุณสมบัติ
 
-| คุณลักษณะ | Shift Register (74HC595) | I2C (SSD1306 4-pin) | 4-Wire SPI (SSD1306 7-pin) |
-| :--- | :--- | :--- | :--- |
-| **จำนวนสายสัญญาณ** | 3 สาย (Data, Clock, Latch) | 2 สาย (SDA, SCL) | 4-5 สาย (MOSI, SCK, CS, DC, RES) |
-| **ความเร็วในการส่งข้อมูล** | ปานกลาง (~5 MHz) | ช้า-ปานกลาง (100 kHz - 400 kHz) | **เร็วมาก (10 MHz - 20 MHz+)** |
-| **การระบุตัวตน (Addressing)** | ไม่มี (ต่อพ่วงแบบ Daisy-Chain) | ใช้ Device Address (7-bit เช่น `0x3C`) | **ใช้สาย Chip Select (CS) แยกเฉพาะ** |
-| **การตรวจจับอุปกรณ์ (Scan)** | ทำไม่ได้ | ทำได้โดยการวนสแกนหา ACK | **ทำไม่ได้ (Write-Only ไม่มีสาย MISO)** |
-| **ความฉลาดของอุปกรณ์** | ไม่มี (เป็นเพียง Flip-Flop บันทึกสถานะ) | มี MCU คอนโทรลเลอร์ภายใน | **มี MCU คอนโทรลเลอร์ + GDDRAM ในตัว** |
-| **อัตราการรีเฟรชหน้าจอ (FPS)** | ไม่เหมาะสำหรับทำจอแสดงผล | 10 - 15 FPS (ค่อนข้างกระตุก) | **50 - 60+ FPS (ลื่นไหล เหมาะกับ Realtime UI)** |
+| คุณลักษณะ |  I2C (SSD1306 4-pin) | 4-Wire SPI (SSD1306 7-pin) |
+| :--- | :--- | :--- |
+| **จำนวนสายสัญญาณ** |  2 สาย (SDA, SCL) | 4-5 สาย (MOSI, SCK, CS, DC, RES) |
+| **ความเร็วในการส่งข้อมูล** | ช้า-ปานกลาง (100 kHz - 400 kHz) | **เร็วมาก (10 MHz - 20 MHz+)** |
+| **อัตราการรีเฟรชหน้าจอ (FPS)** | 10 - 15 FPS (ค่อนข้างกระตุก) | **50 - 60+ FPS (ลื่นไหล เหมาะกับ Realtime UI)** |
+
+ในการทดลองที่ผ่านมา เรามีการสุ่มสัญญาณจาก Potentiometer และแสดงผลผ่าน kestrel ที่อัตรา 10 - 20 ครั้งต่อวินาที ซึ่งจะกระตุกถ้าต่อกับหน้าจอ OLED แบบ I2C ทั่วไป ดังนั้นในการทดลองนี้เราจะใช้ OLED ที่มีอินเตอร์เฟสแบบ 4-Wire SPI เพื่อให้ได้อัตราการรีเฟรชหน้าจอที่สูงพอที่จะแสดงผลกราฟิกแบบ Realtime UI สำหรับอัตราการสุ่มนั้นได้ โดยไม่ต้องเขียนโปรแกรมเพิ่มสำหรับการปรับความสัมพันธ์ของเฟรมเรตและอัตราการสุ่มข้อมูลให้แสดงผลแบบต่อเนื่อง
 
 ---
 
 ## 2. โครงสร้างฮาร์ดแวร์ 4-Wire SPI บนโมดูล OLED SSD1306
 
-โมดูล OLED 0.96 นิ้วที่มีแถบขาเชื่อมต่อ 7 ขา ใช้มาตรฐานการเชื่อมต่อแบบ **4-Wire Serial Peripheral Interface (SPI)** โดยขาแต่ละขามีบทบาทเฉพาะเจาะจง ดังนี้:
+โมดูล OLED 0.96 นิ้วที่มีแถบขาเชื่อมต่อ 7 ขา ใช้มาตรฐานการเชื่อมต่อแบบ **4-Wire Serial Peripheral Interface (SPI)** โดยขาแต่ละขามีบทบาทเฉพาะเจาะจง ดังนี้
+
+
+
+
 
 ```
                   +-----------------------------------+
