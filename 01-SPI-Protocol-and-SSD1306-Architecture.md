@@ -10,21 +10,19 @@
 ### การอินเทอร์เฟซแบบ I2C (Inter-Integrated Circuit) 
 การอินเตอร์เฟสแบบ I2C ใช้สายสัญญาณ 2 เส้น คือ SDA และ SCL โดย SDA ใช้สำหรับส่งข้อมูล และ SCL ใช้สำหรับส่งสัญญาณนาฬิกา มีข้อดีคือใช้สายสัญญาณน้อยแต่ข้อเสียคือความเร็วในการส่งข้อมูลช้ากว่า SPI
 
-<center>
-
+<p align = "center">
 <img src="Images/SSD1306_I2C_Interface.svg">
+</p>
 
-</center>
 
 ### การอินเทอร์เฟสแบบ 4-Wire SPI (Serial Peripheral Interface)
  
 การอินเตอร์เฟสแบบ SPI ใช้สายสัญญาณ 4 เส้น คือ MOSI, SCK, CS, DC และ RES โดย MOSI ใช้สำหรับส่งข้อมูล และ SCK ใช้สำหรับส่งสัญญาณนาฬิกา มีข้อดีคือความเร็วในการส่งข้อมูลเร็วกว่า I2C ทำให้มีอัตราการรีเฟรชหน้าจอ (Frame Rate) ที่สูงกว่า 
 
-<center>
-
+<p align = "center">
 <img src="Images/SSD1306_SPI_Interface.svg">
+</p>
 
-</center>
 
 
 
@@ -46,9 +44,9 @@
 
 โมดูล OLED 0.96 นิ้วที่มีแถบขาเชื่อมต่อ 7 ขา ใช้มาตรฐานการเชื่อมต่อแบบ **4-Wire Serial Peripheral Interface (SPI)** โดยขาแต่ละขามีบทบาทเฉพาะเจาะจง ดังนี้
 
-<center>
+<p align = "center">
 <img src="Images/SSD1306_OLED_Controller_SPI.svg">
-</center>
+</p>
 
 ### หน้าที่ของขา DC (Data / Command Select)
 หัวใจสำคัญที่สุดที่ทำให้นักศึกษาเข้าใจสถาปัตยกรรมของคอนโทรลเลอร์หน้าจอ คือขา **DC**
@@ -171,9 +169,9 @@ void oled_draw_pixel(int x, int y, bool color) {
 
 ### แผนภาพแสดงการทำงานของ Double Buffering
 
-<center>
+<p align = "center">
 <img src="Images/Double_Buffering_Concept.svg">
-</center>
+</p>
 
 >[!info] การส่งข้อมูลผ่าน SPI บัสซึ่งทำงานที่ความเร็ว 10 MHz ใช้เวลาเพียงประมาณ $0.8 \text{ ms}$ เพื่อส่งข้อมูล 1,024 ไบต์ไปยัง Front Buffer ซึ่งทำให้ภาพบนหน้าจอเปลี่ยนฉากใหม่ทันทีอย่างราบเรียบ  ไร้การกระพริบ (**Flicker-Free Realtime UI**)
 
