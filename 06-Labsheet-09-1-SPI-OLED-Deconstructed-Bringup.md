@@ -30,13 +30,13 @@
 
 ## 3. ขั้นตอนการทดลองแบบแยกส่วนประกอบ (Deconstructed Steps)
 
-### กิจกรรมที่ 1.1: การสร้างท่อส่งสัญญาณระดับล่าง (Low-Level SPI & DC Toggle)
+### กิจกรรมที่ 1.1 การสร้างท่อส่งสัญญาณระดับล่าง (Low-Level SPI & DC Toggle)
 
-หัวใจของชิป SSD1306 อยู่ที่ขา **DC (Data/Command)**:
-- ต้องการส่งคำสั่งตั้งค่าเรจิสเตอร์ $\rightarrow$ ดึงขา **`DC = 0`**
+หัวใจของชิป SSD1306 อยู่ที่ขา **DC (Data/Command)**
+- ต้องการส่งคำสั่งตั้งค่ารีจิสเตอร์ $\rightarrow$ ดึงขา **`DC = 0`**
 - ต้องการส่งข้อมูลพิกเซลลงแรม $\rightarrow$ ดึงขา **`DC = 1`**
 
-ให้นักศึกษาพิจารณาและเขียนฟังก์ชันการส่งข้อมูลผ่าน SPI ดังนี้:
+ให้นักศึกษาพิจารณาและเขียนฟังก์ชันการส่งข้อมูลผ่าน SPI ดังนี้
 
 ```c
 // 1. ฟังก์ชันส่งคำสั่ง 1 ไบต์ (Command: DC = 0)
@@ -65,16 +65,16 @@ void oled_send_data(const uint8_t *data, size_t len)
 
 ---
 
-### กิจกรรมที่ 1.2: ปลุกจอให้ตื่นด้วย Magic Sequence (Proof-of-Life)
+### กิจกรรมที่ 1.2 ปลุกจอให้ตื่นด้วย Magic Sequence (Proof-of-Life)
 
-1. **ลำดับการ Hardware Reset (ขา RES):**
+1. **ลำดับการ Hardware Reset (ขา RES)**
    ```c
    gpio_set_level(OLED_PIN_RES, 0); // ดึง LOW เพื่อเริ่มรีเซ็ต
    vTaskDelay(pdMS_TO_TICKS(15));
    gpio_set_level(OLED_PIN_RES, 1); // ดึง HIGH กลับพร้อมทำงาน
    vTaskDelay(pdMS_TO_TICKS(15));
    ```
-2. **ส่งคำสั่งเปิดวงจรทวีแรงดัน (Charge Pump) และเปิดจอ:**
+2. **ส่งคำสั่งเปิดวงจรทวีแรงดัน (Charge Pump) และเปิดจอ**
    ```c
    oled_send_cmd(0xAE); // Display OFF
    oled_send_cmd(0x8D); // Charge Pump Setting
@@ -83,21 +83,21 @@ void oled_send_data(const uint8_t *data, size_t len)
    oled_send_cmd(0x00); // Horizontal Mode
    oled_send_cmd(0xAF); // Display ON!
    ```
-3. **ทดสอบถมพิกเซลทั้งหน้าจอ (Test Pattern):**
-   สร้างอาร์เรย์ทดสอบ 1,024 ไบต์ และส่งขึ้นจอ:
+3. **ทดสอบถมพิกเซลทั้งหน้าจอ (Test Pattern)**
+   สร้างอาร์เรย์ทดสอบ 1,024 ไบต์ และส่งขึ้นจอ
    - ส่งค่า `0xFF` ทั้งหมด $\rightarrow$ จอต้องสว่างขาวโพลนทั้งแผ่นทันที
    - ส่งค่า `0xAA` สลับ `0x55` $\rightarrow$ จอจะแสดงเป็นลายตารางหมากรุก (Checkerboard)
 
 ---
 
-### กิจกรรมที่ 1.3: การเขียนเอนจินพิกเซลบน 1KB Framebuffer (Bitwise Canvas)
+### กิจกรรมที่ 1.3 การเขียนเอนจินพิกเซลบน 1KB Framebuffer (Bitwise Canvas)
 
-สร้างตัวแปรบัฟเฟอร์ในแรมของ ESP32:
+สร้างตัวแปรบัฟเฟอร์ในแรมของ ESP32
 ```c
 static uint8_t s_oled_buffer[1024]; // 128 คอลัมน์ x 8 เพจ = 1,024 ไบต์
 ```
 
-ให้นักศึกษาเติมสูตรคณิตศาสตร์ในฟังก์ชัน `oled_draw_pixel` ด้วยตนเอง:
+ให้นักศึกษาเติมสูตรคณิตศาสตร์ในฟังก์ชัน `oled_draw_pixel` ด้วยตนเอง
 
 ```c
 void oled_draw_pixel(int x, int y, bool color)
@@ -127,10 +127,10 @@ void oled_draw_pixel(int x, int y, bool color)
 
 ---
 
-### กิจกรรมที่ 1.4: สร้างตัวอักษรและพิมพ์ "Hello World"
+### กิจกรรมที่ 1.4 สร้างตัวอักษรและพิมพ์ "Hello World"
 
 1. ศึกษาตารางฟอนต์ `font5x7.h` ซึ่งเก็บข้อมูล 5 ไบต์ต่อตัวอักษร
-2. เขียนฟังก์ชัน `oled_draw_char` และ `oled_draw_string`:
+2. เขียนฟังก์ชัน `oled_draw_char` และ `oled_draw_string`
    ```c
    void oled_draw_string(int x, int y, const char *str, bool color)
    {
@@ -150,8 +150,8 @@ void oled_draw_pixel(int x, int y, bool color)
 
 ในขั้นตอนนี้ นักศึกษาจะทำหน้าที่เป็น "นักนิติวิทยาศาสตร์คอมพิวเตอร์" เพื่อตรวจสอบความถูกต้องของข้อมูลในแรม (Memory Dump) เทียบกับพิกเซลที่ปรากฏบนจอจริง
 
-### กิจกรรมนิติวิทยาศาสตร์ 1.1: Hex Dump Memory Inspection
-เขียนคำสั่ง Dump ค่าใน `s_oled_buffer` บริเวณที่พิมพ์ตัวอักษรตัวแรก (เช่น ตัว `'H'`) ออกทาง Serial Monitor:
+### กิจกรรมนิติวิทยาศาสตร์ 1.1 Hex Dump Memory Inspection
+เขียนคำสั่ง Dump ค่าใน `s_oled_buffer` บริเวณที่พิมพ์ตัวอักษรตัวแรก (เช่น ตัว `'H'`) ออกทาง Serial Monitor
 
 ```c
 ESP_LOGI("FORENSIC", "=== DUMPING FRAMEBUFFER PAGE 0 (First 16 Bytes) ===");
@@ -161,7 +161,7 @@ for (int i = 0; i < 16; i++) {
 }
 ```
 
-### กิจกรรมนิติวิทยาศาสตร์ 1.2: Bit-to-Pixel Forensic Reconstruction
+### กิจกรรมนิติวิทยาศาสตร์ 1.2 Bit-to-Pixel Forensic Reconstruction
 ให้นักศึกษานำค่า Binary ของไบต์จาก Serial Monitor มาเขียนลงในตารางรายงานผลการทดลอง:
 - ถอดรหัสว่าในแต่ละคอลัมน์ บิตใดเป็น `1` บ้าง
 - พิสูจน์ว่ารูปแบบของบิต `1` ตรงกับรูปร่างของตัวอักษร `'H'` บนหน้าจอ OLED จริงหรือไม่!
