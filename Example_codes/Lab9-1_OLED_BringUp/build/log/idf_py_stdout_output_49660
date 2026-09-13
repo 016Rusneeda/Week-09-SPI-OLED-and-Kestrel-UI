@@ -1,0 +1,121 @@
+Command: C:\Espressif\python_env\idf5.5_py3.13_env\Scripts\python.exe C:\Users\koson\esp\v5.5.1\esp-idf\tools/idf_monitor.py -p COM24 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 D:\GitHubRepos\__ENGEDU\__Iot_App_2569\Week-09-SPI-OLED-and-Kestrel-UI\Example_codes\Lab9-1_OLED_BringUp\build\Lab9-1_OLED_BringUp.elf D:\GitHubRepos\__ENGEDU\__Iot_App_2569\Week-09-SPI-OLED-and-Kestrel-UI\Example_codes\Lab9-1_OLED_BringUp\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.13_env\Scripts\python.exe' 'C:\Users\koson\esp\v5.5.1\esp-idf\tools\idf.py'
+�"%=5
+I �ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15824
+load:0x40080400,len:3988
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.1-beta1-685-g6a9c44fe7e7 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Sep 13 2026 16:39:40[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v3.0[0m
+[0;32mI (33) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (37) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (44) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (77) boot: End of partition table[0m
+[0;32mI (81) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=095cch ( 38348) map[0m
+[0;32mI (102) esp_image: segment 1: paddr=000195f4 vaddr=3ffb0000 size=02cf0h ( 11504) load[0m
+[0;32mI (106) esp_image: segment 2: paddr=0001c2ec vaddr=40080000 size=03d2ch ( 15660) load[0m
+[0;32mI (113) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=0cb6ch ( 52076) map[0m
+[0;32mI (132) esp_image: segment 4: paddr=0002cb94 vaddr=40083d2c size=08efch ( 36604) load[0m
+[0;32mI (147) esp_image: segment 5: paddr=00035a98 vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (154) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (154) boot: Disabling RNG early entropy source...[0m
+[0;32mI (165) cpu_start: Multicore app[0m
+[0;32mI (174) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (174) cpu_start: Pro cpu start user code[0m
+[0;32mI (174) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (176) app_init: Application information:[0m
+[0;32mI (180) app_init: Project name:     Lab9-1_OLED_BringUp[0m
+[0;32mI (185) app_init: App version:      1[0m
+[0;32mI (188) app_init: Compile time:     Sep 13 2026 16:40:03[0m
+[0;32mI (193) app_init: ELF file SHA256:  68cd10359...[0m
+[0;32mI (197) app_init: ESP-IDF:          v6.1-beta1-685-g6a9c44fe7e7[0m
+[0;32mI (203) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (207) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (211) efuse_init: Chip rev:         v3.0[0m
+[0;32mI (215) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (221) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (226) heap_init: At 3FFB3720 len 0002C8E0 (178 KiB): DRAM[0m
+[0;32mI (231) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (237) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (242) heap_init: At 4008CC28 len 000133D8 (76 KiB): IRAM[0m
+[0;32mI (249) spi_flash: detected chip: generic[0m
+[0;32mI (251) spi_flash: flash io: dio[0m
+[0;33mW (254) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (267) main_task: Started on CPU0[0m
+[0;32mI (267) main_task: Calling app_main()[0m
+[1;31mE (287) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (287) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (287) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (287) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (297) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (297) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (307) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (307) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (317) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (317) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (327) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (337) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (337) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (347) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (347) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (357) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (357) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (367) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (377) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (377) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (387) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (387) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (397) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (397) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (407) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (407) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (417) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (427) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (427) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (437) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (437) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (447) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (447) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (457) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (467) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (467) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (477) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (477) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (487) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (487) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (497) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (507) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (507) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (517) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (517) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (527) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (527) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (537) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (537) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (547) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (557) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (557) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (567) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (567) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (577) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (577) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (587) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (597) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (597) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (607) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (607) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[1;31mE (617) spi_master: check_trans_valid(1095): invalid dev handle[0m
+[0;32mI (617) main_task: Returned from app_main()[0m
