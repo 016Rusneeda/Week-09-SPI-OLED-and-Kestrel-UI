@@ -24,7 +24,10 @@ flowchart TD
     A --> D["3. กลไกการเรนเดอร์กราฟิก & บิตแมปฟอนต์<br/>(Graphic Primitives, Font 5x7, Multi-Zone UI)"]
     A --> E["4. สถาปัตยกรรม IoT วงปิด & การปรับเทียบ<br/>(Two-Point Calibration, Kestrel Minimal API)"]
 
-    B --> F["06-Labsheet-09-1<br/>SPI OLED Bringup & Multi-Zone UI"]
+    B --> F["06-Labsheet-09-1: Deconstructed Bring-up & Hello World"]
+    E --> G["07-Labsheet-09-2: Kestrel Calibration & Display API"]
+    A --> H["08-Labsheet-09-3: Closed-Loop Integration & Co-Verification"]
+    A --> I["09-Labsheet-09-4: Troubleshooting & Fault Clinic"]
 ```
 
 ---
@@ -73,11 +76,10 @@ flowchart TD
 3. **[03-Graphics-Rendering-Engine-and-Font-Bitmaps.md](03-Graphics-Rendering-Engine-and-Font-Bitmaps.md)** - กลไกการเรนเดอร์กราฟิกพิกเซล, ตารางบิตแมปฟอนต์ ASCII 5x7 และการแบ่งสัดส่วนหน้าจอ Multi-Zone Layout
 4. **[04-Closed-Loop-IoT-Pipeline-and-Calibration.md](04-Closed-Loop-IoT-Pipeline-and-Calibration.md)** - สถาปัตยกรรม IoT วงปิดแบบ Full-Duplex, การสร้างโมเดลคณิตศาสตร์ Two-Point Calibration และการออกแบบ REST Minimal API บน Kestrel
 5. **[05-Glossary.md](05-Glossary.md)** - อภิธานศัพท์และคำย่อทางเทคนิคประจำสัปดาห์ที่ 9
-6. **[06-Labsheet-09-1-SPI-OLED-Bringup-and-MultiZone-UI.md](06-Labsheet-09-1-SPI-OLED-Bringup-and-MultiZone-UI.md)** - **ใบงานที่ 9.1: การควบคุมจอแสดงผล OLED ผ่านบัส SPI และการออกแบบ Multi-Zone UI บน 1KB Framebuffer**
-   - กิจกรรมที่ 1.1: Hardware Reset & Magic Init Sequence (ปลุกจอติด)
-   - กิจกรรมที่ 1.2: The 1KB Framebuffer & Bitwise Pixel Engine
-   - กิจกรรมที่ 1.3: Font Matrix 5x7 & String Rendering
-   - กิจกรรมที่ 1.4: Multi-Zone Layout (Header, Gauge Bar, Footer)
+6. **[06-Labsheet-09-1-SPI-OLED-Deconstructed-Bringup.md](06-Labsheet-09-1-SPI-OLED-Deconstructed-Bringup.md)** - **ใบงานที่ 9.1: การประกอบสร้างตัวขับจอแสดงผล SSD1306 ทีละชิ้นส่วนสู่ Hello World พร้อมการทำ Framebuffer Forensics**
+7. **[07-Labsheet-09-2-Kestrel-Calibration-and-Display-API.md](07-Labsheet-09-2-Kestrel-Calibration-and-Display-API.md)** - **ใบงานที่ 9.2: การพัฒนาเอนจินปรับเทียบเซนเซอร์และ API ควบคุมการแสดงผลบน Kestrel Web Server พร้อมการพิสูจน์หลักฐานเครือข่าย**
+8. **[08-Labsheet-09-3-End-to-End-IoT-Loop-and-Verification.md](08-Labsheet-09-3-End-to-End-IoT-Loop-and-Verification.md)** - **ใบงานที่ 9.3: การบูรณาการระบบวงปิดแบบครบวงจร และการตรวจพิสูจน์ความสอดคล้องของข้อมูล (Telemetry Co-Verification)**
+9. **[09-Labsheet-09-4-Troubleshooting-and-Fault-Clinic.md](09-Labsheet-09-4-Troubleshooting-and-Fault-Clinic.md)** - **ใบงานที่ 9.4: คลินิกวิเคราะห์และแก้ปัญหาความผิดพร่องของระบบ (Fault Injection & Diagnostic Forensics)**
 
 ---
 
