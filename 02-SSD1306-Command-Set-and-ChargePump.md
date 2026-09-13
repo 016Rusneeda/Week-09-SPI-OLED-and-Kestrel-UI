@@ -11,6 +11,7 @@
 เม็ดพิกเซล **Organic Light Emitting Diode (OLED)** เป็นไดโอดเปล่งแสงที่ต้องการแรงดันไบแอสตรง (Forward Bias) เพื่อขับเคลื่อนให้เกิดแสงสว่างที่ประมาณ **$7.0\text{V} - 9.0\text{V}$**  
 แต่ไมโครคอนโทรลเลอร์ ESP32 จ่ายไฟออกจากพินเพียง **$3.3\text{V}$** 
 
+![](Images/Charge-pump-Block.svg)
 ```
   ESP32 VCC (3.3V) ──────► [ SSD1306 Charge Pump Circuit ] ──────► OLED Panel (7-9V)
                                        ▲
