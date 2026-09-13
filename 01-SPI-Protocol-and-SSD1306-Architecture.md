@@ -143,13 +143,13 @@ void oled_draw_pixel(int x, int y, bool color) {
 ### ปัญหาของการวาดลงจอโดยตรง (Single Buffer Direct Draw)
 หากโปรแกรมสั่งล้างหน้าจอแล้วค่อย ๆ ส่งคำสั่งวาดเส้น วาดกล่อง และเขียนตัวอักษรลงไปยังตัวควบคุมหน้าจอทีละส่วน สายตามนุษย์จะสังเกตเห็นจังหวะที่หน้าจอกำลัง "ถูกลบจนมืด" สลับกับจังหวะที่ "ค่อย ๆ วาดวัตถุใหม่ขึ้นมา" ทำให้เกิดการกระพริบที่ทำให้ผู้ใช้งานรู้สึกไม่สบายตา และทำให้ประสิทธิภาพการสื่อสารต่ำมากเพราะต้องส่งคำสั่งย่อยจำนวนมากผ่านบัสสื่อสาร
 
-<center>
-<img src="Images/Single_Buffering_Problem.svg">
-</center>
+<p align = "center">
+<img  src="Images/Single_Buffering_Problem.svg">
+</p>
 
-<center>
-<img src="Images/Single_Buffering_problem_in_OLED.svg">
-</center>
+<p align = "center">
+<img  src="Images/Single_Buffering_problem_in_OLED.svg">
+</p>
 
 ---
 
