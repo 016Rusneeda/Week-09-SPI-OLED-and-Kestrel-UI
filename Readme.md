@@ -18,7 +18,7 @@
 ## 2. แผนผังเนื้อหาการเรียนรู้ประจำสัปดาห์ (Lesson Roadmap)
 
 ```mermaid
-flowchart TD
+flowchart LR
     A["สัปดาห์ที่ 9: SPI OLED & Kestrel UI"] --> B["1. สถาปัตยกรรมบัส SPI & คอนโทรลเลอร์ SSD1306<br/>(SPI vs I2C, 4-Wire Interface, Clock & Timing)"]
     A --> C["2. วงจรทวีแรงดันและการปลุกหน้าจอ<br/>(Hardware Reset, Charge Pump 0x8D, Display ON)"]
     A --> D["3. กลไกการเรนเดอร์กราฟิก & บิตแมปฟอนต์<br/>(Graphic Primitives, Font 5x7, Multi-Zone UI)"]
@@ -80,6 +80,11 @@ flowchart TD
 7. **[07-Labsheet-09-2-Kestrel-Calibration-and-Display-API.md](07-Labsheet-09-2-Kestrel-Calibration-and-Display-API.md)** - **ใบงานที่ 9.2: การพัฒนาเอนจินปรับเทียบเซนเซอร์และ API ควบคุมการแสดงผลบน Kestrel Web Server พร้อมการพิสูจน์หลักฐานเครือข่าย**
 8. **[08-Labsheet-09-3-End-to-End-IoT-Loop-and-Verification.md](08-Labsheet-09-3-End-to-End-IoT-Loop-and-Verification.md)** - **ใบงานที่ 9.3: การบูรณาการระบบวงปิดแบบครบวงจร และการตรวจพิสูจน์ความสอดคล้องของข้อมูล (Telemetry Co-Verification)**
 9. **[09-Labsheet-09-4-Troubleshooting-and-Fault-Clinic.md](09-Labsheet-09-4-Troubleshooting-and-Fault-Clinic.md)** - **ใบงานที่ 9.4: คลินิกวิเคราะห์และแก้ปัญหาความผิดพร่องของระบบ (Fault Injection & Diagnostic Forensics)**
+
+
+>[!INFO] **หมายเหตุ** 
+>เนื่องจากใบงานมีสิ่งที่ต้องทำเยอะมาก ดังนั้นในสัปดาห์นี้ให้ทำของสัปดาห์ที่แล้วให้เสร็จ (ถ้ายังค้าง) 
+>และให้ทำถึงใบงาน 9.2 ก่อน ส่วนใบงานที่ 9.3 และ 9.4 ยังคงต้องเพิ่มรายละเอียดเพื่อให้นักศึกษาสามารถปฏิบัติตามได้
 
 ---
 
