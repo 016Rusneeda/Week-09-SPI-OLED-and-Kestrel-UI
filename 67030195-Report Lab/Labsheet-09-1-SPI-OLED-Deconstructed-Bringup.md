@@ -285,6 +285,7 @@ void oled_flush(void)
 > 1. หน้าจอจะสว่างทั้งจอเป็นเวลา 1.5 วินาที
 > 2. จากนั้นจอจะดับมืดลง และมีจุดพิกเซลสว่างขึ้นเพียง 4 จุดตรงมุมจอทั้งสี่พอดี  
 > พิสูจน์ว่าฟังก์ชัน `oled_clear()` ล้างแรมได้สะอาดหมดจด และสูตรคณิตศาสตร์บิตใน `oled_draw_pixel()` แปลงพิกัด $(x,y)$ ไปยังแรม 1KB ได้อย่างแม่นยำ
+<img width="1477" height="1108" alt="S__5472260_0" src="https://github.com/user-attachments/assets/4ed61301-47b9-4250-8f14-c98485bb8fea" />
 
 ---
 
@@ -342,6 +343,9 @@ void oled_draw_string(int x, int y, const char *str, bool color)
     oled_draw_string(24, 32, "ID: 65012345", true);  // โซนสีฟ้า
     oled_flush();
 ```
+<img width="1477" height="1108" alt="S__5472261_0" src="https://github.com/user-attachments/assets/0559ac24-932e-40e9-9c0c-47620b0fad49" />
+<img width="2024" height="808" alt="S__5472263" src="https://github.com/user-attachments/assets/f4311734-c260-41c2-9322-c1b2c60a3415" />
+
 
 ---
 
