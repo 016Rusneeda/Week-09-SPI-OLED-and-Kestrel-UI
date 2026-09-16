@@ -1,4 +1,4 @@
-# ใบงานการทดลองที่ 9.1 (Lab 9.1)
+# ผลลัพธ์การทดลองของใบงานการทดลองที่ 9.1 (Lab 9.1)
 ## การประกอบสร้างตัวขับจอแสดงผล SSD1306 ทีละชิ้นส่วน (Deconstructed Bring-up) สู่ Hello World และการตรวจสอบความจำภาพเชิงนิติวิทยาศาสตร์ (Framebuffer Forensics)
 ### รูปผลการทดลอง
 <img width="1108" height="1477" alt="8595" src="https://github.com/user-attachments/assets/12a953e1-41f1-4b74-8c70-8edc72200779" />
