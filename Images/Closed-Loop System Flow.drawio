@@ -1,6 +1,6 @@
 <mxfile host="Electron">
   <diagram id="0" name="Page-1">
-    <mxGraphModel dx="855" dy="559" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1240" dy="811" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -46,7 +46,7 @@
         <mxCell id="mRDwn3GV1KrWSiIlVZF0-13" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=16;strokeWidth=2;" value="Kestrel Server" vertex="1">
           <mxGeometry height="30" width="110" x="585" y="270" as="geometry" />
         </mxCell>
-        <mxCell id="mRDwn3GV1KrWSiIlVZF0-15" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Raw Data Streaming" vertex="1">
+        <mxCell id="mRDwn3GV1KrWSiIlVZF0-15" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="Raw Data Streaming" vertex="1">
           <mxGeometry height="30" width="150" x="400" y="210" as="geometry" />
         </mxCell>
         <mxCell id="mRDwn3GV1KrWSiIlVZF0-16" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;startArrow=classic;startFill=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;">
@@ -55,7 +55,7 @@
             <mxPoint x="560" y="320" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="mRDwn3GV1KrWSiIlVZF0-17" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Calibrated Data" vertex="1">
+        <mxCell id="mRDwn3GV1KrWSiIlVZF0-17" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;" value="Calibrated Data" vertex="1">
           <mxGeometry height="30" width="150" x="400" y="290" as="geometry" />
         </mxCell>
         <mxCell id="mRDwn3GV1KrWSiIlVZF0-18" parent="1" style="whiteSpace=wrap;html=1;strokeWidth=3;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=16;" value="OLED&amp;nbsp;&lt;div&gt;Display&lt;/div&gt;" vertex="1">
