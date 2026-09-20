@@ -565,6 +565,7 @@ public class CalibrationService
 
 > [!IMPORTANT]
 > **อย่าลืมเปลี่ยนหมายเลข COMM PORT ให้ตรงกับหมายเลข PORT ที่เชื่อมกับ ESP32**   ที่บรรทัดนี้
+> 
  `string portName = _config["SerialPort:PortName"] ?? "COM24"; // <-- แก้ไขให้ตรงกับพอร์ต ESP32 ของนักศึกษา`
 
 
