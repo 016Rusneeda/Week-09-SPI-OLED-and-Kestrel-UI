@@ -13,7 +13,19 @@
 
 ---
 
-## 2. แผนผังสถาปัตยกรรมระบบวงปิด (Closed-Loop System Flow)
+## 2. แผนผังระบบ
+
+
+### 2.1 บล็อกไดอะแกรม
+
+<p align = "center">
+
+<img src = Images/Closed-Loop%20System%20Flow.svg >
+
+</p>
+
+
+### 2.2 
 
 ```
  [ Potentiometer ]
