@@ -20,7 +20,7 @@
 
 <p align = "center">
 
-<img src = Images/Closed-Loop%20System%20Flow.svg >
+<img src = Images/Closed-Loop%20System%20Flow.svg>
 
 </p>
 
