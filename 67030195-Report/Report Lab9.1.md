@@ -1,19 +1,17 @@
 # ผลลัพธ์การทดลองของใบงานการทดลองที่ 9.1 (Lab 9.1)
 ## การประกอบสร้างตัวขับจอแสดงผล SSD1306 ทีละชิ้นส่วน (Deconstructed Bring-up) สู่ Hello World และการตรวจสอบความจำภาพเชิงนิติวิทยาศาสตร์ (Framebuffer Forensics)
 ### รูปผลการทดลอง
-<img width="1108" height="1477" alt="8595" src="https://github.com/user-attachments/assets/12a953e1-41f1-4b74-8c70-8edc72200779" />
+<img width="1108" height="1477" alt="8595" src="https://github.com/user-attachments/assets/655d67ba-7d81-42cf-9113-805b897208ca" />
 
 ---
 
 ### รูปผลการทดลองมีจุดพิกเซลสว่างขึ้นเพียง 4 จุดตรงมุมจอทั้งสี่พอดี
-<img width="1477" height="1108" alt="S__5472260_0" src="https://github.com/user-attachments/assets/4ed61301-47b9-4250-8f14-c98485bb8fea" />
+<img width="1477" height="1108" alt="S__5472260_0" src="https://github.com/user-attachments/assets/e4ac7dbb-18ec-45ca-ab21-3d8a03dc2a4d" />
 
 ---
 ### รูปผลการทดลองแสดงข้อความ Hello World และ รหัสนักศึกษา
-
-<img width="1477" height="1108" alt="S__5472261_0" src="https://github.com/user-attachments/assets/0559ac24-932e-40e9-9c0c-47620b0fad49" />
-
-<img width="2024" height="808" alt="S__5472263" src="https://github.com/user-attachments/assets/f4311734-c260-41c2-9322-c1b2c60a3415" />
+<img width="1477" height="1108" alt="S__5472261_0" src="https://github.com/user-attachments/assets/82de3cfb-faca-4cdf-8bc6-c2be3e022993" />
+<img width="2024" height="808" alt="S__5472263" src="https://github.com/user-attachments/assets/e1f568c3-02b6-4e37-92ec-c05410f6b91d" />
 
 ---
 
