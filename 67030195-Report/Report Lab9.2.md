@@ -1,11 +1,13 @@
 # ผลลัพธ์การทดลองของใบงานการทดลองที่ 9.2 (Lab 9.2)
 ### การพัฒนาเอนจินปรับเทียบเซนเซอร์และ API ควบคุมการแสดงผลบน Kestrel Web Server พร้อมการพิสูจน์หลักฐานเครือข่าย (HTTP Payload Forensics)
-<img width="1530" height="340" alt="image" src="https://github.com/user-attachments/assets/074a0a68-d6b1-4e36-86bd-1321c2219c60" /> 
+สังเกตุ url ที่ระบบแจ้งมา และให้เปิด web browser ไปที่นั่น
+ต้องเห็นข้อความ "Hello World!"
+
+<img width="1530" height="340" alt="สกรีนช็อต 2026-09-16 222032" src="https://github.com/user-attachments/assets/bb191594-09cb-46ec-a44c-d61718663909" />
    
 ### รูปscreenshot สังเกต Raw HTTP Response Headers
-<img width="1535" height="862" alt="สกรีนช็อต 2026-09-16 223312" src="https://github.com/user-attachments/assets/d038b6b4-bba9-4d05-a6a0-b446ada35c53" />
 
-<img width="1535" height="813" alt="image" src="https://github.com/user-attachments/assets/fa5bb991-3499-4d38-bf81-b057b2a3ec34" />
+<img width="1535" height="813" alt="สกรีนช็อต 2026-09-16 223500" src="https://github.com/user-attachments/assets/6588ec2d-26b9-4b48-bc2f-dc3d001509de" />
 
 ---
 
@@ -35,7 +37,8 @@ Server: Kestrel
 
 {"raw":2048,"calibrated":50.0,"unit":"%","displayMsg":"SYSTEM READY","timestamp":"2026-09-13T..."}
 ```
-<img width="872" height="210" alt="image" src="https://github.com/user-attachments/assets/1b45824c-56c8-4243-a26e-405647eb0790" />
+
+<img width="872" height="210" alt="สกรีนช็อต 2026-09-16 225648" src="https://github.com/user-attachments/assets/86beace8-eadd-4f1e-90b2-485c241c79c5" />
 
 ---
 
@@ -46,7 +49,8 @@ Server: Kestrel
 ```powershell
 Invoke-RestMethod -Uri http://localhost:5117/api/potentiometer/calibrate -Method Post -ContentType "application/json" -Body '{"rawMin": 200, "rawMax": 3800, "scaleMin": 0, "scaleMax": 1000, "unit": "RPM"}'
 ```
-<img width="1218" height="126" alt="image" src="https://github.com/user-attachments/assets/3ec06035-d382-4d06-8a04-a2d514634619" />
+<img width="1218" height="126" alt="สกรีนช็อต 2026-09-16 230041" src="https://github.com/user-attachments/assets/00b165de-562c-4579-834d-9b8deb38c11a" /> 
+<img width="1206" height="175" alt="สกรีนช็อต 2026-09-16 230300" src="https://github.com/user-attachments/assets/cc07871d-97ef-428c-9255-d0df23230b27" />
 
 ---
 
@@ -55,7 +59,7 @@ Invoke-RestMethod -Uri http://localhost:5117/api/potentiometer/calibrate -Method
 ```powershell
 Invoke-RestMethod -Uri http://localhost:5117/api/oled/message -Method Post -ContentType "application/json" -Body '{"message":"Hello OLED"}'
 ```
-<img width="1182" height="157" alt="image" src="https://github.com/user-attachments/assets/506dceb1-6edb-4da3-8b20-1d77360fbebc" />
+<img width="1182" height="157" alt="สกรีนช็อต 2026-09-16 230120" src="https://github.com/user-attachments/assets/633e8137-140c-40d9-8334-bb0a999eb0e9" />
 
 ---
 ### กิจกรรมนิติวิทยาศาสตร์ 2.2: Fault Injection & Vulnerability Probe (การจงใจฉีดข้อมูลวิกฤต)
@@ -69,7 +73,7 @@ Invoke-RestMethod -Uri http://localhost:5117/api/oled/message -Method Post -Cont
    ```
    * **ผลที่คาดหวัง:** เซิร์ฟเวอร์ต้องตอบกลับด้วย **`400 Bad Request`** พร้อมข้อความเตือน `"RawMax ต้องมีค่ามากกว่า RawMin เสมอ!"` โดยที่เซิร์ฟเวอร์ Kestrel **ไม่ล่ม (No Server Crash)**!
    * **รูปภาพผลลัพธ์** 
-  <img width="1206" height="175" alt="image" src="https://github.com/user-attachments/assets/367520d3-2fbf-45d5-8751-40d530971014" />
+  ![Uploading สกรีนช็อต 2026-09-16 230300.png…]()
 
 2. **ทดสอบส่งข้อความว่างเปล่า:**
    ```powershell
@@ -79,7 +83,7 @@ Invoke-RestMethod -Uri http://localhost:5117/api/oled/message -Method Post -Cont
    ```
    * **ผลที่คาดหวัง:** ได้รับ **`400 Bad Request`** แจ้งว่าข้อความต้องไม่ว่างเปล่า
    * **รูปภาพผลลัพธ์**
-  <img width="1226" height="202" alt="image" src="https://github.com/user-attachments/assets/85adbf2f-b465-481b-9087-87d4442787ed" />
+  <img width="1226" height="202" alt="สกรีนช็อต 2026-09-16 230346" src="https://github.com/user-attachments/assets/f83b6251-ca16-4874-9c38-dcc9ca7c595f" />
 
 ---
 
