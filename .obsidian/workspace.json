@@ -183,6 +183,10 @@
   },
   "active": "c981e76aff28fc75",
   "lastOpenFiles": [
+    "67030195-Report/test",
+    "67030195-Report/Report Lab9.3.md",
+    "67030195-Report/Report Lab9.2.md",
+    "67030195-Report/Report Lab9.1.md",
     "week09-Lab/Lab9-1_OLED_BringUp/main/Lab9-1_OLED_BringUp.c",
     "week09-Lab/Lab9-1_OLED_BringUp/main/font5x7.h",
     "week09-Lab/Lab9-1_OLED_BringUp/main/CMakeLists.txt",
@@ -192,7 +196,6 @@
     "week09-Lab/Lab9-1_OLED_BringUp/build/log/idf_py_stdout_output_9948",
     "week09-Lab/Lab9-1_OLED_BringUp/build/log/idf_py_stdout_output_9620",
     "week09-Lab/Lab9-1_OLED_BringUp/build/log/idf_py_stdout_output_888",
-    "week09-Lab/Lab9-1_OLED_BringUp/build/log/idf_py_stdout_output_7644",
-    "week09-Lab/Lab9-1_OLED_BringUp/build/log/idf_py_stdout_output_6608"
+    "week09-Lab/Lab9-1_OLED_BringUp/build/log/idf_py_stdout_output_7644"
   ]
 }
