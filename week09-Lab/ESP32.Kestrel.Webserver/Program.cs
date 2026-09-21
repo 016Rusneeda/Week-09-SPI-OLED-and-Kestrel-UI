@@ -1,31 +1,40 @@
 using ESP32.Kestrel.Webserver.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// ลงทะเบียน Service เป็น Singleton เพื่อให้ใช้ข้อมูลร่วมกันทั้งระบบ
 builder.Services.AddSingleton<CalibrationService>();
+builder.Services.AddSingleton<SerialBridgeService>();
+builder.Services.AddHostedService(sp => sp.GetRequiredService<SerialBridgeService>());
+
 var app = builder.Build();
 
-// Route 1: อ่านข้อมูล Telemetry
-app.MapGet("/api/telemetry", (CalibrationService cal) =>
+// อนุญาตให้เรียกใช้ไฟล์ Static (HTML, SVG, JS) จากโฟลเดอร์ wwwroot
+app.UseDefaultFiles();
+app.UseStaticFiles();
+
+// 1. Endpoint อ่าน Telemetry สำหรับหน้าเว็บ
+app.MapGet("/api/telemetry", (CalibrationService cal, SerialBridgeService bridge) =>
 {
-    int simulatedRaw = 2048; // หรือดึงจาก Serial Stream
-    double calibrated = cal.Compute(simulatedRaw);
     return Results.Ok(new
     {
-        raw = simulatedRaw,
-        calibrated = Math.Round(calibrated, 1),
+        raw = bridge.LatestRaw,
+        calibrated = bridge.LatestCalibrated,
         unit = cal.Settings.Unit,
         displayMsg = cal.CurrentOledMessage,
+        isConnected = bridge.IsConnected,
+        kestrelLatencyMs = bridge.LastRoundTripLatencyMs,
         timestamp = DateTime.UtcNow
     });
 });
 
-// Route 2: ปรับเทียบเซนเซอร์
+// 2. Endpoint ปรับเทียบเซนเซอร์
 app.MapPost("/api/potentiometer/calibrate", (CalibrationSettings newSettings, CalibrationService cal) =>
 {
     try
     {
         cal.UpdateSettings(newSettings);
-        cal.SetOledMessage("CALIBRATED OK");
+        cal.SetOledMessage("CAL OK");
         return Results.Ok(new { status = "success", settings = cal.Settings });
     }
     catch (ArgumentException ex)
@@ -34,7 +43,7 @@ app.MapPost("/api/potentiometer/calibrate", (CalibrationSettings newSettings, Ca
     }
 });
 
-// Route 3: สั่งข้อความขึ้นหน้าจอ OLED
+// 3. Endpoint ส่งข้อความขึ้นจอ OLED ทางกายภาพ
 app.MapPost("/api/oled/message", (DisplayMessageRequest req, CalibrationService cal) =>
 {
     if (string.IsNullOrWhiteSpace(req.Message))

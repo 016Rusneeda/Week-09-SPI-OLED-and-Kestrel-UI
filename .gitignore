@@ -43,3 +43,5 @@ CMakeUserPresets.json
 # Backup and Temporary Files
 # ==========================================
 *.bkp
+
+.vscode

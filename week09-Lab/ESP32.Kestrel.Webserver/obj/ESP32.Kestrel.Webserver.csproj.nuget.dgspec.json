@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\1-2569\\IOT\\week09-Lab\\ESP32.Kestrel.Webserver\\ESP32.Kestrel.Webserver.csproj": {}
+    "D:\\1-2569\\IOT\\Week-09-SPI-OLED-and-Kestrel-UI\\week09-Lab\\ESP32.Kestrel.Webserver\\ESP32.Kestrel.Webserver.csproj": {}
   },
   "projects": {
-    "D:\\1-2569\\IOT\\week09-Lab\\ESP32.Kestrel.Webserver\\ESP32.Kestrel.Webserver.csproj": {
+    "D:\\1-2569\\IOT\\Week-09-SPI-OLED-and-Kestrel-UI\\week09-Lab\\ESP32.Kestrel.Webserver\\ESP32.Kestrel.Webserver.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\1-2569\\IOT\\week09-Lab\\ESP32.Kestrel.Webserver\\ESP32.Kestrel.Webserver.csproj",
+        "projectUniqueName": "D:\\1-2569\\IOT\\Week-09-SPI-OLED-and-Kestrel-UI\\week09-Lab\\ESP32.Kestrel.Webserver\\ESP32.Kestrel.Webserver.csproj",
         "projectName": "ESP32.Kestrel.Webserver",
-        "projectPath": "D:\\1-2569\\IOT\\week09-Lab\\ESP32.Kestrel.Webserver\\ESP32.Kestrel.Webserver.csproj",
+        "projectPath": "D:\\1-2569\\IOT\\Week-09-SPI-OLED-and-Kestrel-UI\\week09-Lab\\ESP32.Kestrel.Webserver\\ESP32.Kestrel.Webserver.csproj",
         "packagesPath": "C:\\Users\\Rusneeda\\.nuget\\packages\\",
-        "outputPath": "D:\\1-2569\\IOT\\week09-Lab\\ESP32.Kestrel.Webserver\\obj\\",
+        "outputPath": "D:\\1-2569\\IOT\\Week-09-SPI-OLED-and-Kestrel-UI\\week09-Lab\\ESP32.Kestrel.Webserver\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Rusneeda\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -45,6 +45,12 @@
         "net10.0": {
           "framework": "net10.0",
           "targetAlias": "net10.0",
+          "dependencies": {
+            "System.IO.Ports": {
+              "target": "Package",
+              "version": "[10.0.12, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
